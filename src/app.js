@@ -44,6 +44,28 @@ app.get("/student/:roll",async(req,res)=>{
     res.status(401).send("Some thing wrong"+err);
   }
   })
+// patch / update data
+app.patch("/student/:id", async(req,res)=>{
+  try{
+    const id = req.params.id;
+    const senD = await database.findByIdAndUpdate(id,req.body,{
+      new:true
+    });
+    res.send(senD).status(200);
+  }catch(err){
+    res.status(500).send(err)
+  }
+})
+app.delete("/student/:roll", async(req,res)=>{
+  try{
+    const roll = req.params.roll;
+    const del = await database.deleteOne({roll:roll});
+    res.status(200).send(del);
+  }catch(err){
+    res.status(500).send("Something is wrong data not"+err)
+  }
+})
+
 
 // port connections
 app.listen(port,()=>{
