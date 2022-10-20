@@ -1,10 +1,10 @@
-const router = express.Router();
+const express = require("express")
+const router = new express.Router();
 const database = require("./monConn")
 
 // app file -----//
-app.use(express.json());
-const filename = require("./students");
-app.use(filename)
+// app.use(express.json());
+
 //------
 // post add data
 router.post('/student',async (req,res)=>{
@@ -62,4 +62,4 @@ router.post('/student',async (req,res)=>{
      }
    })
 
-// module.exports = app;
+module.exports = router;

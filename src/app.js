@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
- 
+const fs = require("fs");
+
 require('./monConn');
 const database = require("./monConn");
 app.use(express.json());
@@ -16,19 +17,15 @@ app.post('/student',async (req,res)=>{
  }catch(err){
    res.status(400).send('data not send something wrong')
  }
-// const finalData = new database(req.body);
-// finalData.save().then(()=>{
-//   res.status(201).send(finalData);
-//   console.log(finalData);
-// }).catch((err)=>{
-//  res.status(400).send('data not send something wrong')
-// })
 })
 
 // get show all datas
 app.get("/student",async(req,res)=>{
 try{
-   const studentData = await database.find();
+   const studentData = await database.find().sort({roll:1});
+    const convertJson =  JSON.stringify(studentData)
+   fs.writeFile("../data.json",convertJson,"utf-8",(err)=>{
+   })
    res.send(studentData).status(200);
 }catch(err){
   res.status(401).send("Some thing wrong"+err);
