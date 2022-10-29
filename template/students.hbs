@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to students data</title>
+</head>
+<body>
+{{>navbar}}
+
+<div class="search container mt-4">
+   <div class="container-fluid">
+    <form class="d-flex" method="post" action="/students">
+      <input class="form-control me-2" type="number" placeholder="Enter Student roll"  name="getRoll" id="getRoll">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+      {{!-- <a class="btn btn-outline-success m-1" href="students">Try Again</a> --}}
+    </form>
+  </div>
+</div>
+  <h1 class=" text-center">{{notMatch}}</h1>
+  <div class="content container-sm mt-5">
+    <h1>Name: {{name}}</h1>
+    <h1>Class: {{class}}</h1>
+    <h1>roll: {{roll}}</h1>
+    <h1>Gmail: {{gmail}}</h1>
+    <h1>Id: {{id}}</h1>
+  </div>
+  {{>buttom}}
+</body>
+</html>
