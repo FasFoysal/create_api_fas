@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to students data</title>
+</head>
+
+<body>
+  {{>navbar}}
+  <h1 class="text-center text-success mt-4" >Admit your child for her bright future</h1>
+  <div class="top_main row mt-5 mb-5">
+    <div class="left_div g-3 col-6 ">
+       <form class="row g-3 container boo_cus" method="post" action="student">
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">Name</label>
+          <input type="text" class="form-control" name="name" id="name" >
+        </div>
+        <div class="col-md-6">
+          <label for="inputPassword4" class="form-label">Roll</label>
+          <input type="number" class="form-control" name="roll" id="roll">
+        </div>
+        <div class="col-12">
+          <label for="inputAddress" class="form-label">Class</label>
+          <input type="number" class="form-control" name="class" id="class">
+        </div>
+        <div class="col-12">
+          <label for="inputAddress2" class="form-label">Gmail</label>
+          <input type="text" class="form-control" name="gmail" id="gmali">
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Sign in</button>
+        </div>
+      </form>
+    </div>
+    <div class="left_div  col-6">
+      <img class="img-fluid p-0 m-0" src="style/add.svg" alt="" srcset="">
+    </div>
+  </div>
+  {{>buttom}}
+</body>
+
+</html>

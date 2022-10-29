@@ -20,14 +20,15 @@ app.set('view engine', 'hbs');
 hbs.registerPartials(partialPath);
 app.use(express.urlencoded());
 
-
+// -----index page render 
 app.get("/",(req,res)=>{
   res.render("index")
  })
+ // -----students page render 
 app.get("/students", (req,res)=>{
   res.render("students")
  })
-
+// -----students post(search) page render 
  app.post("/students", async(req,res)=>{
   try{
     let getRoll =  req.body.getRoll;
@@ -42,6 +43,10 @@ app.get("/students", (req,res)=>{
     res.status(200).render("students",{notMatch:"Roll not Match"})
   }
  })
+// -----add_students page render 
+app.get("/add_students",(req,res)=>{
+  res.status(200).render("add_students");
+})
 
 // get show all datas
  app.get("/student",async(req,res)=>{
@@ -57,6 +62,7 @@ app.get("/students", (req,res)=>{
 app.post('/student',async (req,res)=>{
   try{
     const finalData = new database(req.body);
+    console.log(finalData)
     await finalData.save()
     res.status(201).send(finalData);
     console.log(finalData);
